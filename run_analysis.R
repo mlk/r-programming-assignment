@@ -47,6 +47,6 @@ total <- rbind(load_clean_dataset("train"),
                load_clean_dataset("test"))
 
 
-tidy_data_set <- dcast(melt(total, id=c("subject_id", "activities")), subject_id + activities ~ variable, mean)
+tidy_data_set <- dcast(melt(total, id=c("subject_id", "activities")), activities + subject_id  ~ variable, mean)
 
 write.table(tidy_data_set, destination_file)
