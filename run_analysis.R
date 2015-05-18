@@ -14,7 +14,6 @@ if(clear_data_folder && file.exists("./data")) {
     unlink("./data", recursive = TRUE)
 }
 
-
 # Load some helper functions
 source("helpers.R")
 
@@ -28,7 +27,7 @@ download_if_does_not_exist(uri_source, zip_file)
 unzip_if_required(zip_file, content_root)
 
 # Loads the labels for the features and the activities
-feature_labels <- read.table(to_content_path("features.txt"), header = F, col.names = c("column_id", "feature_name"))
+feature_labels <- read.table(to_content_path("features.txt"), header = F, col.names = c("column_id", "feature"))
 activity_labels <- read.table(to_content_path("activity_labels.txt"), header = F, col.names = c("activity_id", "activity"))
 
 # Combines the training and testing datasets

@@ -52,7 +52,7 @@ to_content_path <- function(filename) {
 load_and_clean_dataset_for <- function(label) {
     # Loads the features, activity IDs and subject IDs. 
     features <- read.table(to_content_path(paste0(label, "/X_", label, ".txt")), 
-                           header = F, col.names = feature_labels$feature_name)
+                           header = F, col.names = feature_labels$feature)
     activity_ids <- read.table(to_content_path(paste0(label, "/y_", label, ".txt")), 
                                header = F, col.names = c("activity_id"))
     subject_ids <- read.table(to_content_path(paste0(label, "/subject_", label, ".txt")), 
