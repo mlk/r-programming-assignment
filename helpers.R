@@ -2,12 +2,13 @@
 
 
 #' If the file specified in FileLocation does not exist then the file is downloaded.
+#' NOTE: This assumes that the data_root variable exists in the parent frame.
 #' @param fileUrl The file to download. 
 #' @param fileLocation Where to download the file too.
 #' @param ... Passed to "download.file".
 download_if_does_not_exist <- function(fileUrl, fileLocation, ...) {
-    if(!file.exists("./data")){
-        dir.create("./data")
+    if(!file.exists(data_root)){
+        dir.create(data_root)
     }
     
     if(!file.exists(fileLocation)){
@@ -15,12 +16,13 @@ download_if_does_not_exist <- function(fileUrl, fileLocation, ...) {
     }
 }
 
-#' If the unziped content specified does not exist then the zip file is unziped to "./data".
+#' If the unziped content specified does not exist then the zip file is unziped `data_root`.
+#' NOTE: This assumes that the data_root variable exists in the parent frame.
 #' @param zipFile The zip file to unzip
 #' @param target A file or folder assumed to exist within the zip file once unziped to 
 unzip_if_required <- function(zipFile, target) {
     if(!file.exists(target)){
-        unzip(zipFile, exdir="./data")
+        unzip(zipFile, exdir=data_root)
     }    
 }
 
@@ -33,27 +35,21 @@ install_required_packages <- function(list.of.packages) {
     if(length(new.packages)) install.packages(new.packages)
 }
 
-#' Adds the content root to a file.
-#' NOTE: Assumes "content_root" exists within the current enviroment.
-#' @param filename The file name.
-to_content_path <- function(filename) {
-    paste0(content_root, filename)
-}
-
 #' Loads and merges the dataset (features, activities and subjects), cuts it down to just the the means and 
 #' standard deviation for each measurement and gives the activities nice names.
 #' NOTE: Requires the following variables to be set in the parent frame:
 #'  * activity_labels - Nice names for the activities.
 #'  * feature_labels - Nice names for each of the feature labels. 
+#'  * content_root - The parent directory of the unzipped files.
 #' @param labal The data set to load. Either "test" or "train".
 #' @return The data set.
 load_and_clean_dataset_for <- function(label) {
     # Loads the features, activity IDs and subject IDs. 
-    features <- read.table(to_content_path(paste0(label, "/X_", label, ".txt")), 
+    features <- read.table(paste0(content_root, label, "/X_", label, ".txt"), 
                            header = F, col.names = feature_labels$feature)
-    activity_ids <- read.table(to_content_path(paste0(label, "/y_", label, ".txt")), 
+    activity_ids <- read.table(paste0(content_root, label, "/y_", label, ".txt"), 
                                header = F, col.names = c("activity_id"))
-    subject_ids <- read.table(to_content_path(paste0(label, "/subject_", label, ".txt")), 
+    subject_ids <- read.table(paste0(content_root, label, "/subject_", label, ".txt"), 
                               header = F, col.names = c("subject_id"))
     
     # Strips out all the features bar the means and standard deviations. 

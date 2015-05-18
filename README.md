@@ -36,6 +36,7 @@ The configuration block allows for the user of the script to set up a few variab
 
 |Variable             |Description|
 |---------------------|-----------|
+|`data_root`          |The root folder of the data.|
 |`uri_source`         |Where we should download the source zip file from.|
 |`zip_file`           |The filename of the downloaded zip file. |
 |`content_root`       |The folder within the unzipped zip file containing the content we wish to summarize|
@@ -63,4 +64,5 @@ How it works
 Footnotes
 ---------
 
-1. Having the data dumped into the same folder as the executable is I feel a little dirty and I perfer a clean seperation between data and code. Thus the application uses a "data" directory to hold the downloaded files. If you disagree with this you can change `content_root` to be `"./UCI HAR Dataset/"` and it will execute as specified in the requirements.
+1. Having the data dumped into the same folder as the executable is I feel a little dirty and I perfer a clean seperation between data and code. Thus the application uses a "data" directory to hold the downloaded files. If you disagree with this you can change `data_root` to be `"./"` and it will execute as specified in the requirements.
+DO NOT change `data_root` to be `"./"` and use the `clear_data_folder = TRUE` feature. Bad things will happen.

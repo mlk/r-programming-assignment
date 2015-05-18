@@ -2,16 +2,17 @@
 rm(list=ls())
 
 ## Configuration
+data_root = "./data"
 uri_source = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-zip_file = "./data/dataset.zip"
-content_root = "./data/UCI HAR Dataset/"
-destination_file = "./data/results.txt"
+zip_file = paste0(data_root, "/dataset.zip")
+content_root = paste0(data_root, "/UCI HAR Dataset/")
+destination_file = paste0(data_root, "/results.txt")
 output_as_long_form = FALSE
-clear_data_folder = FALSE
+clear_data_folder = TRUE
 
 # Optionally clear out the old data folder
-if(clear_data_folder && file.exists("./data")) {
-    unlink("./data", recursive = TRUE)
+if(clear_data_folder && file.exists(data_root)) {
+    unlink(data_root, recursive = TRUE)
 }
 
 # Load some helper functions
@@ -27,8 +28,8 @@ download_if_does_not_exist(uri_source, zip_file)
 unzip_if_required(zip_file, content_root)
 
 # Loads the labels for the features and the activities
-feature_labels <- read.table(to_content_path("features.txt"), header = F, col.names = c("column_id", "feature"))
-activity_labels <- read.table(to_content_path("activity_labels.txt"), header = F, col.names = c("activity_id", "activity"))
+feature_labels <- read.table(paste0(content_root, "features.txt"), header = F, col.names = c("column_id", "feature"))
+activity_labels <- read.table(paste0(content_root, "activity_labels.txt"), header = F, col.names = c("activity_id", "activity"))
 
 # Combines the training and testing datasets
 total <- rbind(load_and_clean_dataset_for("train"),
