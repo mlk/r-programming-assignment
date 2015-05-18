@@ -6,21 +6,21 @@ The repo contains two R files
  * `run_analysis.R` is the application which builds up the tidy data set. 
  * `helpers.R` is some helper methods which hopefully make `run_analysis.R` easier to follow.
  
-and two MD files
+and two markdown files
 
  * `README.md` is this one. Containing lots of fun information.
  * `CodeBook.md` describes the table created by `run_analysis.R`.
 
 Requirements
 ------------
-The application was developed using R 3.1.3 with the following packages aviable. They will be installed if required.
+The application was developed using R 3.1.3 with the following packages aviable.
 
 |Library   |Version|
 |----------|-------|
 |`dplyr`   |0.4.1  |
 |`reshape2`|1.4.1  |
 
-While it was developed using RStudio it will run happily in the R Console.
+The required packages will be installed if required by the script. While it was developed using RStudio it will run happily in the R Console.
 
 Execution
 ---------
