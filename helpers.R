@@ -40,8 +40,6 @@ to_content_path <- function(filename) {
     paste0(content_root, filename)
 }
 
-
-
 #' Loads and merges the dataset (features, activities and subjects), cuts it down to just the the means and 
 #' standard deviation for each measurement and gives the activities nice names.
 #' NOTE: Requires the following variables to be set in the parent frame:
