@@ -8,7 +8,7 @@ zip_file = paste0(data_root, "/dataset.zip")
 content_root = paste0(data_root, "/UCI HAR Dataset/")
 destination_file = paste0(data_root, "/results.txt")
 output_as_long_form = FALSE
-clear_data_folder = TRUE
+clear_data_folder = FALSE
 
 # Optionally clear out the old data folder
 if(clear_data_folder && file.exists(data_root)) {
