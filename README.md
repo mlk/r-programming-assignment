@@ -58,7 +58,7 @@ How it works
  * Converts the complete data set into a long form data set using the subject and activity as the keys
  * Generates final tidy data set of contain the mean for each feature by activity/subject.
  * Optionally converts to long form.
- * Write out the tiday data.
+ * Write out the tidy data.
  
 The application makes use of of the following files from the source zip file.
  

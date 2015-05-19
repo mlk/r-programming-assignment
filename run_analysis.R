@@ -52,5 +52,5 @@ if(output_as_long_form) {
     tidy_data_set <- melt(tidy_data_set, id=c("subject_id", "activity"))
 }
 
-# Write out the tiday data.
+# Write out the tidy data.
 write.table(tidy_data_set, destination_file, row.name=FALSE)
