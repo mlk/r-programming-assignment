@@ -35,6 +35,20 @@ install_required_packages <- function(list.of.packages) {
     if(length(new.packages)) install.packages(new.packages)
 }
 
+#' Renames the features labels to more human readable labels.
+#' @param the vector of feature labels
+#' @return The renamed feature labels.
+as_human_readable_feature_labels <- function(feature_names) {
+    feature_names <- gsub("fBody", "Frequency.Body", feature_names)
+    feature_names <- gsub("tBody", "Time.Body", feature_names)
+    feature_names <- gsub("tGravity", "Time.Gravity", feature_names)
+    feature_names <- gsub("-mean\\(\\)", ".Mean.", feature_names)
+    feature_names <- gsub("-std\\(\\)", ".StandardDeviation.", feature_names)
+    feature_names <- gsub("Acc", "Acceleration", feature_names)
+    
+    feature_names
+}
+
 #' Loads and merges the dataset (features, activities and subjects), cuts it down to just the the means and 
 #' standard deviation for each measurement and gives the activities nice names.
 #' NOTE: Requires the following variables to be set in the parent frame:
@@ -53,7 +67,7 @@ load_and_clean_dataset_for <- function(label) {
                               header = F, col.names = c("subject_id"))
     
     # Strips out all the features bar the means and standard deviations. 
-    clean_data_set <- select(features, contains("mean.."), contains("std.."))
+    clean_data_set <- select(features, contains(".Mean."), contains(".StandardDeviation."))
     
     # Adds on the subject IDs.
     clean_data_set$subject_id <- subject_ids$subject_id

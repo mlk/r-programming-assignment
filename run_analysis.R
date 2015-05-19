@@ -31,6 +31,10 @@ unzip_if_required(zip_file, content_root)
 feature_labels <- read.table(paste0(content_root, "features.txt"), header = F, col.names = c("column_id", "feature"))
 activity_labels <- read.table(paste0(content_root, "activity_labels.txt"), header = F, col.names = c("activity_id", "activity"))
 
+# Renames to a human readble set of feature names. Keep the old feature names to generate the codebook.
+feature_labels$feature_old <- feature_labels$feature
+feature_labels$feature <- as_human_readable_feature_labels(feature_labels$feature)
+
 # Combines the training and testing datasets
 total <- rbind(load_and_clean_dataset_for("train"),
                load_and_clean_dataset_for("test"))
