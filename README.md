@@ -48,7 +48,7 @@ How it works
 ------------
  * Downloads and unzips the source content. This will be skipped if they already exist.
  * Loads the labels for the features and the activities.
- * Loads the train & test data sets and combines them with the nice labels.
+ * Loads the train & test data sets
     * Loads the features, activity ids and subject IDs    
     * Filters out only the features we are interested in.
     * Adds the subject and activities IDs to the features.
