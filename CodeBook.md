@@ -7,11 +7,11 @@ The script makes no assumptions and will install any libraries required and will
 
 Overview of the data
 -----------------
-This is a tided and summarized version of the data available from [Human Activity Recognition Using Smartphones Data Set][dataset]. The original description of the data can be found in Appendex 1. The result data set contains just the means of the mean and standard deviation for each subject/activity pair. 
+This is a tided and summarized version of the data available from [Human Activity Recognition Using Smartphones Data Set][dataset]. The original description of the data can be found in Appendex 1. The result data set contains the means for each subject/activity/feature tuple where the feature is either a mean or a standard deviation.
 
 ### Columns
 
-This document describes the `results.txt` file created by the `run_analysis.R` application. The `run_analysis.R` application can be executed in two modes - long form or short form. Both will contain the following variables:
+The `results.txt` created by `run_analysis.R` can be executed in two modes - long form or short form. Both will contain the following variables:
 
 |Column|Description|
 |------|------------|
@@ -28,7 +28,6 @@ In long form each of the observations is in a different row. The data frame cont
 |`value`|the value of the variable. See below for the units.|
 
 #### Short Form
-
 
 Each of the columns represent the mean of all mean values of the subject while performing the specified activity.
 
@@ -130,12 +129,13 @@ The two data sets are combined.
 
 The mean for each feature per activity/subject pair is then calculated.
 
-Appendix
-========
+Appendices
+==========
 
 One: Original Dataset Codebook
 ---------------------
 
+```
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
@@ -192,6 +192,7 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 The complete list of variables of each feature vector is available in 'features.txt'
+```
 
 Two: Convertion between orginal feature labels and human readable feature labels.
 -----------------------------------------------------------
