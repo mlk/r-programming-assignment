@@ -64,5 +64,5 @@ How it works
 Footnotes
 ---------
 
-1. Having the data dumped into the same folder as the executable is I feel a little dirty and I perfer a clean seperation between data and code. Thus the application uses a "data" directory to hold the downloaded files. If you disagree with this you can change `data_root` to be `"./"` and it will execute as specified in the requirements.
-DO NOT change `data_root` to be `"./"` and use the `clear_data_folder = TRUE` feature. Bad things will happen.
+1. Having the data dumped into the same folder as the executable is I feel a little dirty and I perfer a clean seperation between data and code. Thus the application uses a "data" directory to hold the downloaded files. If you disagree with this you can change `data_root` to be `"."` and it will execute as specified in the requirements.
+DO NOT change `data_root` to be `"."` and use the `clear_data_folder = TRUE` feature. Bad things will happen.
