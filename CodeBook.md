@@ -108,26 +108,7 @@ Each of the columns represent the mean of all standard deviation values of the s
 
 Data Transformation
 -------------------
-The data is loaded from the following sources:
-
-|file|Description|
-|----|-----------|
-|`features.txt`|Nice names for the features.|
-|`activity_labels.txt`|Nice names for the activities|
-|`train/X_train.txt`|the features for the training dataset.|
-|`train/y_train.txt`|the activity IDs for each row in the training dataset.|
-|`train/subject_train.txt`|the subject IDs for each row in the training dataset.|
-|`test/X_test.txt`|the features for the test dataset.|
-|`test/y_test.txt`|the activity IDs for each row in the test dataset.|
-|`test/subject_test.txt`|the subject IDs for each row in the test dataset.|
-
-The data from the train folder is merged together then the activities are linked to the nice names specified in `activity_labels.txt`. From this only the features which contain "mean" or "std" are extracted.
-
-The data from the test folder is merged together then the activities are linked to the nice names specified in `activity_labels.txt`. From this only the features which contain "mean" or "std" are extracted.
-
-The two data sets are combined.
-
-The mean for each feature per activity/subject pair is then calculated.
+Please see [How It Works in the README.md][howitworks] for details on the data transformation. 
 
 Appendices
 ==========
@@ -270,3 +251,4 @@ Two: Convertion between orginal feature labels and human readable feature labels
 
 
 [dataset]: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+[howitworks]: README.md#how-it-works

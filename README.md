@@ -42,7 +42,7 @@ The configuration block allows for the user of the script to set up a few variab
 |`content_root`       |The folder within the unzipped zip file containing the content we wish to summarize|
 |`destination_file`   |The location of the summarized data|
 |`output_as_long_form`|Should the output be in long form or short form|
-|`clear_data_folder`  |Deletes the cached version of the 
+|`clear_data_folder`  |Deletes the cached version of the content before downloading afreash|
 
 How it works
 ------------
@@ -59,6 +59,20 @@ How it works
  * Generates final tidy data set of contain the mean for each feature by activity/subject.
  * Optionally converts to long form.
  * Write out the tiday data.
+ 
+The application makes use of of the following files from the source zip file.
+ 
+|file|Description|
+|----|-----------|
+|`features.txt`|Nice names for the features.|
+|`activity_labels.txt`|Nice names for the activities|
+|`train/X_train.txt`|the features for the training dataset.|
+|`train/y_train.txt`|the activity IDs for each row in the training dataset.|
+|`train/subject_train.txt`|the subject IDs for each row in the training dataset.|
+|`test/X_test.txt`|the features for the test dataset.|
+|`test/y_test.txt`|the activity IDs for each row in the test dataset.|
+|`test/subject_test.txt`|the subject IDs for each row in the test dataset.|
+
  
  
 Footnotes
