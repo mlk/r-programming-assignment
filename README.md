@@ -22,6 +22,8 @@ The application was developed using R 3.1.3 with the following packages aviable.
 
 The required packages will be installed if required by the script. While it was developed using RStudio it will run happily in the R Console.
 
+It has been tested on Microsoft Windows 7 and Microsoft Window 8.1.
+
 Execution
 ---------
 To execute the application simply set the working directory to where `run_analysis.R` is checked out and execute `source("run_analysis.R")`. While the requirements  specify that "the Samsung data is in your working directory", this script assumes that it is in the `./data` directory¹. This script will download and unzip the data should it not exist.
@@ -43,6 +45,7 @@ The configuration block allows for the user of the script to set up a few variab
 |`destination_file`   |The location of the summarized data|
 |`output_as_long_form`|Should the output be in long form or short form|
 |`clear_data_folder`  |Deletes the cached version of the content before downloading afreash|
+|`download_method`    |Passed to `download.file` as the method. Defaults to Curl which works on Windows.|
 
 How it works
 ------------
@@ -51,13 +54,13 @@ How it works
  * Loads the train & test data sets
     * Loads the features, activity ids and subject IDs    
     * Filters out only the features we are interested in.
-    * Adds the subject and activities IDs to the features.
+    * Adds the subject and activities IDs to the features data table.
     * Merges to the activity labels to give the activities nice names
     * Drops the activity IDs from the data frame.
  * Combines the train and test data sets.
  * Converts the complete data set into a long form data set using the subject and activity as the keys
  * Generates final tidy data set of contain the mean for each feature by activity/subject.
- * Optionally converts to long form.
+ * Optionally converts the tidy dataset to long form.
  * Write out the tidy data.
  
 The application makes use of of the following files from the source zip file.

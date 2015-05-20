@@ -2,17 +2,18 @@
 
 
 #' If the file specified in FileLocation does not exist then the file is downloaded.
-#' NOTE: This assumes that the data_root variable exists in the parent frame.
+#' NOTE: This assumes that the data_root & download_method variables exists in the parent frame.
+#' 
 #' @param fileUrl The file to download. 
 #' @param fileLocation Where to download the file too.
 #' @param ... Passed to "download.file".
-download_if_does_not_exist <- function(fileUrl, fileLocation, ...) {
+download_if_does_not_exist <- function(fileUrl, fileLocation) {
     if(!file.exists(data_root)){
         dir.create(data_root)
     }
     
     if(!file.exists(fileLocation)){
-        download.file(fileUrl,destfile=fileLocation,method="curl", ...)
+        download.file(fileUrl,destfile=fileLocation,method=download_method)
     }
 }
 

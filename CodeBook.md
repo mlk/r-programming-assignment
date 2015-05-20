@@ -7,11 +7,19 @@ The script makes no assumptions and will install any libraries required and will
 
 Overview of the data
 -----------------
-This is a tided and summarized version of the data available from [Human Activity Recognition Using Smartphones Data Set][dataset]. The original description of the data can be found in Appendex 1. The result data set contains the means for each subject/activity/feature tuple where the feature is either a mean or a standard deviation.
+This is a tidy and summarized version of the data available from [Human Activity Recognition Using Smartphones Data Set][dataset]. The original description of the data can be found in Appendex 1. The result data set contains the means for each subject/activity & feature tuple where the feature is either a mean or a standard deviation.
+
+### Output file
+
+By default `run_analysis.R` will create a file `./data/result.txt`, however this can be changed via the `destination_file` variable. It can be read by R using the `read.table` fuction.
+
+```
+x <- read.table("./data/results.txt")
+```
 
 ### Columns
 
-The `results.txt` created by `run_analysis.R` can be executed in two modes - long form or short form. Both will contain the following variables:
+`run_analysis.R` can be executed in two modes - long form or short form. Both will contain the following variables:
 
 |Column|Description|
 |------|------------|
