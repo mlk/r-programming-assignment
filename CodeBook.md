@@ -11,7 +11,7 @@ This is a tidy and summarized version of the data available from [Human Activity
 
 ### Output file
 
-By default `run_analysis.R` will create a file `./data/result.txt`, however this can be changed via the `destination_file` variable. It can be read by R using the `read.table` fuction.
+By default `run_analysis.R` will create a file `./data/results.txt`, however this can be changed via the `destination_file` variable. It can be read by R using the `read.table` fuction.
 
 ```
 x <- read.table("./data/results.txt", header = TRUE)
