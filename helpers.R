@@ -17,17 +17,6 @@ download_if_does_not_exist <- function(fileUrl, fileLocation) {
     }
 }
 
-#' If the unziped content specified does not exist then the zip file is unziped `data_root`.
-#' NOTE: This assumes that the data_root variable exists in the parent frame.
-#' @param zipFile The zip file to unzip
-#' @param target A file or folder assumed to exist within the zip file once unziped to 
-unzip_if_required <- function(zipFile, target) {
-    if(!file.exists(target)){
-        unzip(zipFile, exdir=data_root)
-    }    
-}
-
-
 #' If the required packages have not yet been installed, this method installs them.
 #' 
 #' @param list.of.packages packages to be installed.
@@ -58,7 +47,7 @@ as_human_readable_feature_labels <- function(feature_names) {
 #'  * content_root - The parent directory of the unzipped files.
 #' @param labal The data set to load. Either "test" or "train".
 #' @return The data set.
-load_and_clean_dataset_for <- function(label) {
+load_and_tidy_dataset_for <- function(label) {
     # Loads the features, activity IDs and subject IDs. 
     features <- read.table(paste0(content_root, label, "/X_", label, ".txt"), 
                            header = F, col.names = feature_labels$feature)
